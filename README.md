@@ -21,6 +21,7 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output 
+```
 import pandas as pd
 data={'name':['John','Alice','Bob'],'age':[25,23,22],'gender':['M','M','F'],'salary':[500000,100000,700000]}
 df=pd.DataFrame(data)
@@ -119,7 +120,7 @@ data={'name':['John','Alice','Bob','charlie','Dave','Eve','Bob','John'],
 df=pd.DataFrame(data)
 df_mean=df.fillna(df['age'].mean())
 print(df_mean)
-
+```
 
 # Result
         the given data has been performed data cleaning and saved the cleaned data to a file successfully.
