@@ -120,6 +120,214 @@ data={'name':['John','Alice','Bob','charlie','Dave','Eve','Bob','John'],
 df=pd.DataFrame(data)
 df_mean=df.fillna(df['age'].mean())
 print(df_mean)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.info()
+
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+print(df)
+print(df.describe())
+
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.head(5)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.tail(5)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.isnull().sum()#display how many missing value
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.nunique
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df['GENDER'].value_counts()
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.dropna(how='any').shape
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.shape#total rows nd column
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+x=df.dropna(how='any')#if any 1 value is missing del the whole row
+print(x)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+x2=df.dropna(how='all').shape#if all the values r missing then del the row
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+tot=df.dropna(subset=['TOTAL'],how='any')
+print(tot)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+tot=df.dropna(subset=['M1','M2','M3','M4'],how='any')
+print(tot)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+s=df.fillna(0)
+s
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.isna().sum()
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df['M1']
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.isnull()#to know missing value
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.notnull()#to know non missing value
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+x1=df.dropna(axis=0)
+print(x1)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+df.duplicated()
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df
+m=df.drop_duplicates(inplace=False)#to fine duplicates nd drop them, if true it executes, false not executes
+m
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+import seaborn as sns
+sns.heatmap(df.isnull(),yticklabels=False,annot=True)   
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df.dropna(inplace=True)
+sns.heatmap(df.isnull(),yticklabels=False,annot=True)
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+print(df.loc[0:3])
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df.dtypes
+
+import pandas as pd
+df=pd.read_csv('SAMPLEIDS.csv')
+df.filter(regex='a',axis=1)
+
+#import pandas as pd
+#de=pd.read_excel('STUDENT.xlsx',sheet_name='DET')
+#to add excel files
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+age=[1,2,3,4,5,6,7,8,9,10,25,20,36,40,35,33]
+af=pd.DataFrame(age)
+af
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+af=pd.DataFrame(age)
+sns.boxplot(data=af)
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+af=pd.DataFrame(age)
+sns.boxenplot(data=af)
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+af=pd.DataFrame(age)
+sns.scatterplot(data=af)
+
+q1=af.quantile(0.25)
+q2=af.quantile(0.5)
+q3=af.quantile(0.75)
+iqr=q3-q1
+print(iqr)
+
+Q1=np.percentile(af,25)
+Q3=np.percentile(af,75)
+IQR=Q3-Q1
+print(IQR)
+
+lower_bound=Q1-1.5*IQR
+print(lower_bound)
+
+upper_bound=Q3+1.5*IQR
+print(upper_bound)
+
+outliers=[x for x in age if x< lower_bound or x > upper_bound]
+print(outliers)
+
+print("Q1:",Q1)
+print("Q3:",Q3)
+print("IQR:",IQR)
+print("lower bound:",lower_bound)
+print("upper bound:",upper_bound)
+print("outliers:",outliers)
+
+af=af[((af>=lower_bound)&(af<=upper_bound))]
+print(af)
+#outliers r replaced by nan
+
+af.dropna()
+
+sns.boxplot(data=af)
+
+
 ```
 
 # Result
