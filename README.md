@@ -296,6 +296,19 @@ print(af)
 ```
 ![image](https://github.com/user-attachments/assets/31d670c3-5c17-4acf-8657-e6f5c6e9f096)
 
+```
+id=pd.read_csv("iris.csv")
+id
+```
+
+![image](https://github.com/user-attachments/assets/db0f58fb-b3af-4974-9e0d-1abbdf8302eb)
+
+```
+
+sns.boxplot(x='sepal_width',data=id)
+```
+
+
 
 
 # Result:
