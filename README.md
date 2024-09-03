@@ -296,5 +296,7 @@ print(af)
 ```
 ![image](https://github.com/user-attachments/assets/31d670c3-5c17-4acf-8657-e6f5c6e9f096)
 
+
+
 # Result:
 Thus we have cleaned the data and removed the outliers by detection using IQR and Z-score method.
