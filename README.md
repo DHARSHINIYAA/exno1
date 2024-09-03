@@ -307,7 +307,86 @@ id
 
 sns.boxplot(x='sepal_width',data=id)
 ```
+![image](https://github.com/user-attachments/assets/ed28990d-a913-4024-b4cb-938306f61268)
 
+```
+c1=id.sepal_width.quantile(0.25)
+c3=id.sepal_width.quantile(0.75)
+iq=c3-c1
+print(c3)
+```
+![image](https://github.com/user-attachments/assets/f64676c4-4120-4ad5-96a5-07462a033cda)
+
+```
+
+rid=id[((id.sepal_width<(c1-1.5*iq))|(id.sepal_width>(c3+1.5*iq)))]
+rid['sepal_width']
+```
+![image](https://github.com/user-attachments/assets/20a2bc95-cc77-424b-9fc0-91e37b766e0c)
+
+```
+delid=id[~((id.sepal_width<(c1-1.5*iq))|(id.sepal_width>(c3+1.5*iq)))]
+delid
+```
+![image](https://github.com/user-attachments/assets/173cbc48-2346-4c03-8e4a-c1ed2ee9040a)
+
+```
+
+sns.boxplot(x='sepal_width',data=delid)
+```
+![image](https://github.com/user-attachments/assets/f8993863-0618-46c8-a7ef-e86be7bd1019)
+
+```
+lower_bound = c1 - 1.5 * iq
+lower_bound
+upper_bound = c3 + 1.5 *iq
+upper_bound
+```
+![image](https://github.com/user-attachments/assets/773fd4ae-a544-43f2-b700-ab52516e4cf4)
+
+```
+
+import pandas as pd 
+df =pd.read_csv('bank_train (1).csv')
+df
+```
+![image](https://github.com/user-attachments/assets/20aaf156-0214-4cd8-a1d4-ab9755cd9e01)
+
+```
+df.loc[(df['education']=='primary')&(df['deposit']=='yes')]
+#select the rows where clients with primary education have subscribed to a deposit?
+```
+![image](https://github.com/user-attachments/assets/ed8377b8-1cdb-4e6f-ac54-86c7b3b913f6)
+
+```
+df.loc[(df['deposit']=='no')]
+#select the rows where the client who have not subscribed to a deposit?
+```
+![image](https://github.com/user-attachments/assets/567d1e5f-f2b9-4900-bd24-fc73860fe2ac)
+
+```
+df.loc[(df['deposit']=='yes')&((df['housing']=='yes')|(df['loan']=='yes'))]
+# select the rows where clients who have subscribed to a deposit either have a housing or a personal loan?
+```
+![image](https://github.com/user-attachments/assets/67b2b91e-223d-494a-9d0f-c84c3bc68405)
+
+```
+df.loc[(df['education']=='secondary')&(df['deposit']=='no')]
+#select the rows where clients with secondary education who have not subscribed to a deposit?
+```
+![image](https://github.com/user-attachments/assets/8afb7e3a-b8ec-4e49-aab9-f57f83f924a0)
+
+```
+#select the rows where  clients who have subscribed to a term deposit as an outcome of the successful marketing campaign? 
+df.loc[(df['poutcome']=='success')&(df['deposit']=='yes')]
+```
+![image](https://github.com/user-attachments/assets/b19ad091-e64e-42c4-aefd-47a72bf6d085)
+
+```
+#select the rows where unemployed clients who have not subscribed to deposit?
+df.loc[(df['job']=='unemployed')&(df['deposit']=='no')]
+```
+![image](https://github.com/user-attachments/assets/51e6a3bf-51e1-452e-85ca-975a87400b62)
 
 
 
